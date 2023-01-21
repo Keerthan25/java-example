@@ -4,8 +4,8 @@ node {
   }
   stage('SonarQube Analysis') {
     def mvn = tool 'Maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=jenkinsjob"
+    withSonarQubeEnv('Sonarqube') {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar"
     }
   }
 }
